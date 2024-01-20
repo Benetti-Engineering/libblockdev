@@ -23,6 +23,7 @@
 #include <errno.h>
 
 #include "dev_utils.h"
+#include "utils.h"
 
 /**
  * bd_utils_dev_utils_error_quark: (skip)
