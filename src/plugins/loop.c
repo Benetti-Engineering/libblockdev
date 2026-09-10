@@ -130,12 +130,6 @@ static gchar* _loop_get_backing_file_from_fd (gint fd, GError **error) {
 
     sys_path = g_strdup_printf ("/sys/dev/block/%u:%u/loop/backing_file",
                                 major (statbuf.st_rdev), minor (statbuf.st_rdev));
-
-    if (access (sys_path, R_OK) != 0) {
-        g_free (sys_path);
-        return NULL;
-    }
-
     success = g_file_get_contents (sys_path, &ret, NULL, error);
     if (!success) {
         /* error is already populated */
